@@ -16,7 +16,7 @@ export class RecipeCardsComponent implements OnInit {
   ngOnInit() {
     this.recipesService.getRecipes().subscribe(data => {
       this.recipes = data.matches;
-      console.log(data.matches);
+      console.log(data);
     })
   }
 

@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Jeffs table';
-
+  title = 'Assignment 06 - Recipe App';
+  
   constructor() {}
 
   ngOnInit() {
   }
 
-
+  
 
 
 

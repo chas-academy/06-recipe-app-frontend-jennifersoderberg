@@ -5,20 +5,18 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
-import { ClarityModule } from '@clr/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RecipeDetailsComponent } from './recipe-cards/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeCardsComponent
+    RecipeCardsComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    ClarityModule,
-    BrowserAnimationsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

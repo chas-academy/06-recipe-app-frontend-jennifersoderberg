@@ -4,7 +4,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{ i.recipeName }}</h5>
-          <a href="#" class="btn btn-sm">Let's cook!</a>
+          <img src="{{i.imageUrlsBySize[90]}}" alt="">
+          <a class="btn btn-sm" routerLink="/details/{{i.recipeName}}">Let's cook!</a>
         </div>
       </div>
     </div>
