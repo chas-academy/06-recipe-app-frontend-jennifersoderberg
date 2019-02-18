@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../recipes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-recipe-details',
@@ -24,14 +22,11 @@ export class RecipeDetailsComponent implements OnInit {
   ngOnInit() {
     this.recipesService.getRecipes().subscribe(data => {
       this.recipes = data.matches;
-      console.log('It works!');
       console.log(data.matches);
-      console.log(data.matches[0].id);
     });
 
     this.recipesService.currentMessage.subscribe(message =>
       this.message = message
     );
-
   }
 }

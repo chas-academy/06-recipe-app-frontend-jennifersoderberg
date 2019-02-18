@@ -12,13 +12,11 @@ export class RecipeCardsComponent implements OnInit {
   recipes = [];
   message: string;
 
-
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit() {
     this.recipesService.getRecipes().subscribe(data => {
       this.recipes = data.matches;
-      console.log(data);
     });
 
     this.recipesService.currentMessage.subscribe(message => this.message = message);
