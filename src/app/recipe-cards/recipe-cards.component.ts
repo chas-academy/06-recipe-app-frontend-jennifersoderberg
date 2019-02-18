@@ -10,6 +10,8 @@ import { RecipesService } from './recipes.service';
 export class RecipeCardsComponent implements OnInit {
   title = 'recipe-cards';
   recipes = [];
+  message: string;
+
 
   constructor(private recipesService: RecipesService) { }
 
@@ -17,7 +19,12 @@ export class RecipeCardsComponent implements OnInit {
     this.recipesService.getRecipes().subscribe(data => {
       this.recipes = data.matches;
       console.log(data);
-    })
+    });
+
+    this.recipesService.currentMessage.subscribe(message => this.message = message);
   }
 
+  recipeDetails(e) {
+    this.recipesService.changeMessage(e);
+  }
 }
