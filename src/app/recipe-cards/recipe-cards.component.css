@@ -1,6 +1,10 @@
 /* RECIPE CARDS*/
 .card {
     margin: 3px;
+    opacity: 0.9;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .btn {

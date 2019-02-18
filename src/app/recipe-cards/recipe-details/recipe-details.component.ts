@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { RecipesService } from '../recipes.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -11,22 +12,31 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipes = [];
   message: string;
+  searchString: string;
+  q: string;
 
   constructor(
     private recipesService: RecipesService,
-    private route: ActivatedRoute,
-    private readonly router: Router,
+    private http: HttpClient
     ) { }
 
 
   ngOnInit() {
-    this.recipesService.getRecipes().subscribe(data => {
-      this.recipes = data.matches;
-      console.log(data.matches);
-    });
+    this.recipesService.currentMessage.subscribe(message => this.message = message);
+    this.getRecipe(this.message);
+    console.log(this.message);
+  }
 
-    this.recipesService.currentMessage.subscribe(message =>
-      this.message = message
+  getRecipe(e) {
+    this.recipesService.yummlyRequest().subscribe(data => {
+      this.recipes = data;
+    });
+  }
+
+  yummlyRequest = (q: any) => {
+    this.searchString = q.id;
+    return this.http.get(
+      `http://api.yummly.com/v1/api/recipe/${this.searchString}?_app_id=268d6b88&_app_key=886b1f26a1a4d4bf74e89d2769579f90`
     );
   }
 }

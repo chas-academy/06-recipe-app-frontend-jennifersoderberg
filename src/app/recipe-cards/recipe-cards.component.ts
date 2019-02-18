@@ -15,14 +15,14 @@ export class RecipeCardsComponent implements OnInit {
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit() {
-    this.recipesService.getRecipes().subscribe(data => {
+    this.recipesService.yummlyRequest().subscribe(data => {
       this.recipes = data.matches;
     });
 
     this.recipesService.currentMessage.subscribe(message => this.message = message);
   }
 
-  recipeDetails(e) {
-    this.recipesService.changeMessage(e);
-  }
+    recipeDetails(e) {
+      this.recipesService.changeMessage(e);
+    }
 }

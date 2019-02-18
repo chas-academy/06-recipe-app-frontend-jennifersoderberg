@@ -1,2 +1,13 @@
-
-<h4>{{ message }}</h4>
+<body>
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-title"> {{ message.recipeName }} </h3>
+            <ul>
+                <li class="card-text" *ngFor="let i of message.ingredients"> {{ i }} </li>
+            </ul>
+            <img src="{{message.imageUrlsBySize[90]}}" alt="">
+            <a href="#" class="btn btn-sm">Back..</a>
+        </div>
+    </div>
+</body>

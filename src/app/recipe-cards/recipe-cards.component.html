@@ -8,7 +8,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ i.recipeName }}</h5>
           <img src="{{i.imageUrlsBySize[90]}}" alt="">
-          <a class="btn btn-sm" (click)="recipeDetails(i.id)" routerLink="/details/{{i.recipeName}}">Let's cook!</a>
+          <a class="btn btn-sm" (click)="recipeDetails(i)" routerLink="/details/{{i.id}}">Let's cook!</a>
         </div>
       </div>
     </div>
