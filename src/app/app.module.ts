@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
 import { RecipeDetailsComponent } from './recipe-cards/recipe-details/recipe-details.component';
 import { HeaderComponent } from './header/header.component';
+import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipeCardsComponent,
     RecipeDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    SavedRecipesComponent
   ],
   imports: [
     BrowserModule,

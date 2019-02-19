@@ -22,7 +22,7 @@ export class RecipeCardsComponent implements OnInit {
     this.recipesService.currentMessage.subscribe(message => this.message = message);
   }
 
-    recipeDetails(e) {
-      this.recipesService.changeMessage(e);
+    recipeDetails(i) {
+      this.recipesService.changeMessage(i);
     }
 }

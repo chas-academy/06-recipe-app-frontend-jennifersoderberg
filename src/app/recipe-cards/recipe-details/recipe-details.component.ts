@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { RecipesService } from '../recipes.service';
+import { SavedRecipesService } from '../../saved-recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -17,14 +18,15 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
-    private http: HttpClient
+    private http: HttpClient,
+    private savedRecipes: SavedRecipesService
     ) { }
 
 
   ngOnInit() {
     this.recipesService.currentMessage.subscribe(message => this.message = message);
     this.getRecipe(this.message);
-    console.log(this.message);
+    // console.log(this.message);
   }
 
   getRecipe(e) {
@@ -38,5 +40,10 @@ export class RecipeDetailsComponent implements OnInit {
     return this.http.get(
       `http://api.yummly.com/v1/api/recipe/${this.searchString}?_app_id=268d6b88&_app_key=886b1f26a1a4d4bf74e89d2769579f90`
     );
+  }
+
+  newMessage(i) {
+    console.log(i);
+    this.savedRecipes.changeMessage(i);
   }
 }

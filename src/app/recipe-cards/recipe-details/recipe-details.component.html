@@ -7,7 +7,8 @@
                 <li class="card-text" *ngFor="let i of message.ingredients"> {{ i }} </li>
             </ul>
             <img src="{{message.imageUrlsBySize[90]}}" alt="">
-            <a href="#" class="btn btn-sm">Back..</a>
+            <a href="#" class="btn btn-sm">Back</a>
+            <button class="btn btn-sm" (click)="newMessage(message)" routerLink="/mysavedrecipes">Add to my list</button>
         </div>
     </div>
 </body>
