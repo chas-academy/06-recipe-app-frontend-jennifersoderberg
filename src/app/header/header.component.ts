@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from '../recipe-cards/recipes.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   title = 'Assignment 06 - Recipe App';
+  searchString = '';
+  searchedRecipes = [];
+  message: string;
 
-  constructor() { }
+  constructor( private recipesService: RecipesService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  handleRecipeClick = (searchString) => {
+    this.searchString = searchString;
+
+    this.recipesService.yummlySearchRequest(searchString);
   }
+
+  getSearchResult(i) {
+    this.recipesService.changeMessage(i);
+  }
+
 
 }

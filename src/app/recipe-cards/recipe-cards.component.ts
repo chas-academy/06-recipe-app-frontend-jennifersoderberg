@@ -12,17 +12,26 @@ export class RecipeCardsComponent implements OnInit {
   recipes = [];
   message: string;
 
-  constructor(private recipesService: RecipesService) { }
+  constructor(
+    private recipesService: RecipesService
+  ) { }
 
   ngOnInit() {
-    this.recipesService.yummlyRequest().subscribe(data => {
-      this.recipes = data.matches;
+    // To get default recipes on load
+    this.recipesService.yummlyRequest().subscribe(recipes => {
+      this.recipes = recipes.matches;
     });
 
+    // Subscribe to observable of the current search results in the service, this will update recipes on every new search
+    this.recipesService.currentSearchResults.subscribe(recipes => {
+        this.recipes = recipes.matches;
+    });
+
+    // Subscribe to observable of the current search value (query)
     this.recipesService.currentMessage.subscribe(message => this.message = message);
   }
 
-    recipeDetails(i) {
-      this.recipesService.changeMessage(i);
-    }
+  recipeDetails(i) {
+    this.recipesService.changeMessage(i);
+  }
 }

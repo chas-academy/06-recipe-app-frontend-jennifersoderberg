@@ -2,7 +2,8 @@
   <div class="container">
     <h1 class="display-4" style="text-align:center"> {{ title }} </h1>
     <div class="form-group">
-        <input type="search" class="form-control" >
+      <input [(ngModel)]="searchString" class="form-control" placeholder="search"> 
+      <button (click)="handleRecipeClick(searchString)">Search</button>
     </div>
   </div>
 </div>

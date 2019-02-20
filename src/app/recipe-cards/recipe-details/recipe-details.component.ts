@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 import { RecipesService } from '../recipes.service';
 import { SavedRecipesService } from '../../saved-recipes.service';
@@ -11,7 +12,7 @@ import { SavedRecipesService } from '../../saved-recipes.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  recipes = [];
+  recipe = {};
   message: string;
   searchString: string;
   q: string;
@@ -19,31 +20,25 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(
     private recipesService: RecipesService,
     private http: HttpClient,
-    private savedRecipes: SavedRecipesService
-    ) { }
+    private savedRecipes: SavedRecipesService,
+    private route: ActivatedRoute
+  ) { }
 
 
   ngOnInit() {
+    const recipeId = this.route.snapshot.params.id;
+    this.getRecipe(recipeId);
     this.recipesService.currentMessage.subscribe(message => this.message = message);
-    this.getRecipe(this.message);
-    // console.log(this.message);
   }
 
-  getRecipe(e) {
-    this.recipesService.yummlyRequest().subscribe(data => {
-      this.recipes = data;
-    });
+  getRecipe(recipeId) {
+    this.recipesService.yummlyRequestOne(recipeId)
+      .subscribe(recipe => {
+        this.recipe = recipe;
+      });
   }
 
-  yummlyRequest = (q: any) => {
-    this.searchString = q.id;
-    return this.http.get(
-      `http://api.yummly.com/v1/api/recipe/${this.searchString}?_app_id=268d6b88&_app_key=886b1f26a1a4d4bf74e89d2769579f90`
-    );
-  }
-
-  newMessage(i) {
-    console.log(i);
-    this.savedRecipes.changeMessage(i);
+  addRecipeToList(recipeId) {
+    // Later
   }
 }

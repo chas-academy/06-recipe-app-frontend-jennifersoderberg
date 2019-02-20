@@ -1,6 +1,25 @@
 <!-- HEADER -->
 <app-header></app-header>
 
+<!-- 
+1. If sökresultat finns -> display Recipe Search Cards
+2. Else -> display Recipe Cards 
+-->
+
+
+<!-- RECIPE SEARCH CARDS -->
+<!-- <div class="row">
+  <div class="col-sm-6" *ngFor="let i of searchedRecipes">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ message.recipeName }}</h5>
+        <img src="{{i.imageUrlsBySize[90]}}" alt="">
+        <a class="btn btn-sm" (click)="recipeDetails(i)" routerLink="/details/{{i.id}}">Let's cook!</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
 <!-- RECIPE CARDS -->
 <div class="row">
     <div class="col-sm-6" *ngFor="let i of recipes">

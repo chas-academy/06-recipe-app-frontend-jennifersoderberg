@@ -1,14 +1,13 @@
 <body>
-    <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+    <div class="card" *ngIf="recipe">
         <div class="card-body">
-            <h3 class="card-title"> {{ message.recipeName }} </h3>
+            <h3 class="card-title"> {{ recipe.name }} </h3>
             <ul>
-                <li class="card-text" *ngFor="let i of message.ingredients"> {{ i }} </li>
+                <li class="card-text" *ngFor="let ingredient of recipe.ingredientLines"> {{ ingredient }} </li>
             </ul>
-            <img src="{{message.imageUrlsBySize[90]}}" alt="">
+            <img src="{{recipe.images[0].imageUrlsBySize[90]}}" alt="">
             <a href="#" class="btn btn-sm">Back</a>
-            <button class="btn btn-sm" (click)="newMessage(message)" routerLink="/mysavedrecipes">Add to my list</button>
+            <button class="btn btn-sm" (click)="addRecipeToList(recipe.id)">Add to my list</button>
         </div>
     </div>
 </body>
