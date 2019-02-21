@@ -1,9 +1,36 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Navbar</a>
+  <a class="navbar-brand" href="#">Login</a>
+</nav>
+
+  <!-- HEADER WITH SEARCH FIELD-->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4" style="text-align:center"> {{ title }} </h1>
-    <div class="form-group">
-      <input [(ngModel)]="searchString" class="form-control" placeholder="search"> 
-      <button (click)="handleRecipeClick(searchString)">Search</button>
-    </div>
+    <form class="form-group">
+      <div>
+        <input [(ngModel)]="searchString" name="searchString" class="form-control" placeholder="search">
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Breakfast
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Lunch
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Dinner
+
+        <p>Free from</p>
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="394^Peanut-Free">Peanuts
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="396^Dairy-Free">Dairy
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="400^Soy-Free">Soy
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="397^Egg-Free">Egg
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="398^Seafood-Free">Seafood
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="401^Sulfite-Free">Sulfite
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="392^Wheat-Free">Wheat
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="393^Gluten-Free">Gluten
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="399^Sesame-Free">Sesame
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Vegetarian
+        <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Vegan
+      </div>
+      <div>
+        <button (click)="handleRecipeClick(searchString)">Search</button>
+      </div>
+    </form>
   </div>
 </div>

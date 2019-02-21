@@ -13,7 +13,9 @@ export class HeaderComponent implements OnInit {
   searchedRecipes = [];
   message: string;
 
-  constructor( private recipesService: RecipesService) { }
+  constructor(
+    private recipesService: RecipesService
+  ) {}
 
   ngOnInit() {}
 
@@ -27,5 +29,8 @@ export class HeaderComponent implements OnInit {
     this.recipesService.changeMessage(i);
   }
 
-
+  checkAllergies(event) {
+    if (event.target.value) {
+      console.log(event.target.value);
+    }}
 }
