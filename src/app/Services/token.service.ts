@@ -15,7 +15,6 @@ export class TokenService {
   // Handles token (called in login.component.ts)
   handle(token) {
     this.set(token);
-    console.log(this.isValid());
   }
 
   // Save token in local storage
