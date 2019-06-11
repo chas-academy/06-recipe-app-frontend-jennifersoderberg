@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { HttpClient } from 'selenium-webdriver/http';
-import { HttpClient } from '@angular/common/http';
+import { UsersService } from '../Services/users.service';
+import { TokenService } from '../Services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private Users: UsersService,
+    private Token: TokenService
+  ) { }
 
   public form = {
     email: null,
@@ -19,11 +22,14 @@ export class LoginComponent implements OnInit {
   public error = null;
 
   onSubmit() {
-    // console.log(this.form);
-    this.http.post('http://recipeapp.test/api/login', this.form).subscribe(
-      data => console.log(data),
+    this.Users.login(this.form).subscribe(
+      data => this.handleResponse(data),
       error => this.handleError(error)
     );
+  }
+
+  handleResponse(data) {
+    this.Token.handle(data.access_token);
   }
 
   handleError(error) {

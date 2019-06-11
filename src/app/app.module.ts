@@ -14,6 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
+import { UsersService } from './Services/users.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ResponseResetComponent } from './password/response-reset/response-reset
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
