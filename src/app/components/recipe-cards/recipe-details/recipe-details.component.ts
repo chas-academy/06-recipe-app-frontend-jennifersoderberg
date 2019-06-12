@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 import { RecipesService } from '../recipes.service';
-import { SavedRecipesService } from '../../saved-recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -20,7 +19,6 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(
     private recipesService: RecipesService,
     private http: HttpClient,
-    private savedRecipes: SavedRecipesService,
     private route: ActivatedRoute
   ) { }
 
