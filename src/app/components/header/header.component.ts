@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from '../recipe-cards/recipes.service';
+import { RecipesService } from '../../Services/recipes.service';
 
 @Component({
   selector: 'app-header',

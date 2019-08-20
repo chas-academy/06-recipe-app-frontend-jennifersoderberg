@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
-import { RecipesService } from '../recipes.service';
+import { RecipesService } from '../../../Services/recipes.service';
+import { SavedRecipesService } from '../../../Services/saved-recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -11,6 +13,7 @@ import { RecipesService } from '../recipes.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
+  accessToken = localStorage.getItem('token');
   recipe = {};
   message: string;
   searchString: string;
@@ -18,8 +21,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
+    private savedRecipeService: SavedRecipesService,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
 
@@ -36,7 +41,13 @@ export class RecipeDetailsComponent implements OnInit {
       });
   }
 
-  addRecipeToList(recipeId) {
-    // Later
+  addRecipeToList(recipe) {
+    if (this.accessToken) {
+      // console.log('token!');
+      this.savedRecipeService.saveRecipe(recipe);
+    } else {
+      // console.log('no token');
+      this.router.navigateByUrl('/login');
+    }
   }
 }

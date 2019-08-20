@@ -10,7 +10,7 @@ export class TokenService {
   private iss = {
     login: 'http://recipeapp.test/api/login',
     signup: 'http://recipeapp.test/api/signup'
-  }
+  };
 
   // Handles token (called in login.component.ts)
   handle(token) {

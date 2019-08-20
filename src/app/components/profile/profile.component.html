@@ -1,3 +1,10 @@
-<p>
-  profile works!
-</p>
+
+<h1>Saved recipes</h1>
+
+<div *ngFor="let recipe of recipes">
+  <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
+    {{ recipe.name }}
+  </a>
+  <img src="{{ recipe.image }}" />
+  <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
+</div>

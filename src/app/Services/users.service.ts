@@ -11,6 +11,7 @@ export class UsersService {
   private baseUrl = 'http://recipeapp.test/api';
 
   signup(data) {
+    console.log(data);
     return this.http.post(`${this.baseUrl}/signup`, data);
   }
 
