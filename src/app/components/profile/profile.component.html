@@ -1,10 +1,21 @@
+<!-- <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div> -->
 
-<h1>Saved recipes</h1>
+<div class="flexcontainer">
+  <h1>Saved recipes</h1>
+</div>
 
-<div *ngFor="let recipe of recipes">
-  <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
-    {{ recipe.name }}
-  </a>
-  <img src="{{ recipe.image }}" />
-  <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
+<div class="flexcontainer">
+  <div class="row">
+    <div *ngFor="let recipe of recipes">
+        <!-- class="col-sm-6" -->
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ recipe.name }}</h5>
+          <img src="{{ recipe.image }}" alt="">
+          <a class="btn btn-sm" (click)="recipeDetails(recipe)" routerLink="/details/{{recipe.id}}">Cook it now!</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

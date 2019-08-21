@@ -8,7 +8,7 @@ import { RecipesService } from '../../Services/recipes.service';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'Assignment 06 - Recipe App';
+  title = 'Whats for dinner?';
   searchString = '';
   searchedRecipes = [];
   message: string;

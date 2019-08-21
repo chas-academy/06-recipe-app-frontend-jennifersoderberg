@@ -1,14 +1,16 @@
 <body>
   <!-- NAVBAR -->
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" routerLink="">Navbar</a>
-    <div>
-      <a class="navbar-brand" routerLink="profile" *ngIf="loggedIn">Profile</a>
-      <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">Login</a>
-      <a class="navbar-brand" routerLink="signup" *ngIf="!loggedIn">Register</a>
-      <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
-    </div>
-  </nav>
+  <a class="navbar-brand" routerLink="">
+    <img src="../assets/images/Cooking Egg Emoji.png" alt="Cooking egg emoji">
+  </a>
+  <div>
+    <a class="navbar-brand" routerLink="profile" *ngIf="loggedIn">Saved recipes</a>
+    <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">Login</a>
+    <a class="navbar-brand" routerLink="signup" *ngIf="!loggedIn">Register</a>
+    <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+  </div>
+</nav>
   
   <router-outlet></router-outlet>
 </body>
