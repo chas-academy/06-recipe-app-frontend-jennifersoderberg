@@ -1,5 +1,3 @@
-<!-- <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div> -->
-
 <div class="flexcontainer">
   <h1>Saved recipes</h1>
 </div>
@@ -13,7 +11,8 @@
         <div class="card-body">
           <h5 class="card-title">{{ recipe.name }}</h5>
           <img src="{{ recipe.image }}" alt="">
-          <a class="btn btn-sm" (click)="recipeDetails(recipe)" routerLink="/details/{{recipe.id}}">Cook it now!</a>
+          <a class="btn btn-sm" routerLink="/details/{{recipe.recipe_id}}">Cook it now!</a>
+          <a class="btn btn-sm" (click)="deleteRecipe(recipe)">Delete</a>
         </div>
       </div>
     </div>

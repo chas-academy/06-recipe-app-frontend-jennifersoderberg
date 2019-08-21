@@ -10,13 +10,18 @@ export class ProfileComponent implements OnInit {
   recipes: [];
 
   constructor(
-    private savedService: SavedRecipesService
+    private savedRecipeService: SavedRecipesService,
   ) { }
 
   ngOnInit() {
-    this.savedService.getSavedRecipes().subscribe(response => {
+    this.savedRecipeService.getSavedRecipes().subscribe(response => {
       this.recipes = response.data;
     });
   }
 
+  deleteRecipe(recipe) {
+    const recipeId = recipe.recipe_id;
+
+    this.savedRecipeService.deleteRecipe(recipeId).subscribe();
+  }
 }

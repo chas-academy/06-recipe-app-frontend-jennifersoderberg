@@ -24,7 +24,7 @@ export class SavedRecipesService {
   }
 
   saveRecipe(recipe) {
-    console.log(recipe); // loggar ut objektet korrekt
+    // console.log(recipe); // loggar ut objektet korrekt
 
     // skicka med user_id nedan?
     const requestBody = {
@@ -38,4 +38,12 @@ export class SavedRecipesService {
     const request = this.http.post(`${this.baseUrl}/saved-recipes`, requestBody, this.httpOptions);
     request.subscribe(message => message);
   }
+
+  deleteRecipe(recipeId) {
+    return this.http.delete(`${this.baseUrl}/saved-recipes/${recipeId}`, this.httpOptions);
+  }
+
+
+
+
 }
