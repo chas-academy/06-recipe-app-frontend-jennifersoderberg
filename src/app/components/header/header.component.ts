@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { RecipesService } from '../../Services/recipes.service';
 
 @Component({
@@ -19,18 +20,26 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  handleRecipeClick = (searchString) => {
-    this.searchString = searchString;
+  handleRecipeClick = (form: NgForm) => {
+    const preferances = this.checkedPreferances(form);
+    const searchString = form.value.searchString;
 
-    this.recipesService.yummlySearchRequest(searchString);
+    this.recipesService.yummlySearchRequest(searchString, preferances);
+  }
+
+  checkedPreferances = (form: NgForm) => {
+    const preferances = [];
+
+    for (const i in form.value) {
+      if (form.value[i] === true ) {
+        preferances.push(i);
+      }
+    }
+    return preferances;
   }
 
   getSearchResult(i) {
     this.recipesService.changeMessage(i);
   }
 
-  checkAllergies(event) {
-    if (event.target.value) {
-      console.log(event.target.value);
-    }}
 }

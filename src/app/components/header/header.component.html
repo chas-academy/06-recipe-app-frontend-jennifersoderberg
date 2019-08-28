@@ -2,38 +2,36 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4" style="text-align:center"> {{ title }} </h1>
-    <form class="form-group">
+    <form #form="ngForm" (ngSubmit)="handleRecipeClick(form)" class="form-group">
 
       <div class="flexcontainer-large">
         <div class="searchbox">
-          <input [(ngModel)]="searchString" name="searchString" class="form-control searchitem" placeholder="">
-          <button (click)="handleRecipeClick(searchString)">Search</button>
+          <input ngModel type="text" name="searchString" class="form-control searchitem" placeholder="" required>
+          <button type="submit">Search</button>
         </div>
         
-        <div class="flexcontainer-small">
-          <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Breakfast
-          <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Lunch
-          <input type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Dinner
-        </div>
-
-        <div class="flexcontainer-small">
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="394^Peanut-Free">Peanuts
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="396^Dairy-Free">Dairy
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="400^Soy-Free">Soy
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="397^Egg-Free">Egg
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="398^Seafood-Free">Seafood
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="401^Sulfite-Free">Sulfite
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="392^Wheat-Free">Wheat
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="393^Gluten-Free">Gluten
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="399^Sesame-Free">Sesame
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Vegetarian
-          <input class="flex-item" type="checkbox" (change)="checkAllergies($event)" name="allergies" value="">Vegan 
+        <div class="diet">
+          <div class="flexcontainer-small">
+              <input ngModel class="flex-item" type="checkbox" name="Breakfast">Breakfast
+            <input ngModel class="flex-item" type="checkbox" name="Appetizers">Appetizers
+            <input ngModel class="flex-item" type="checkbox" name="Side+Dishes">Side Dishes
+            <input ngModel class="flex-item" type="checkbox" name="Main+Dishes">Main Dishes
+            <input ngModel class="flex-item" type="checkbox" name="Desserts">Dessert
+          </div>
+  
+          <div class="flexcontainer-small">
+            <input ngModel class="flex-item" type="checkbox" name="394^Peanut-Free">Peanuts
+            <input ngModel class="flex-item" type="checkbox" name="396^Dairy-Free">Dairy
+            <input ngModel class="flex-item" type="checkbox" name="400^Soy-Free">Soy
+            <input ngModel class="flex-item" type="checkbox" name="397^Egg-Free">Egg
+            <input ngModel class="flex-item" type="checkbox" name="398^Seafood-Free">Seafood
+            <input ngModel class="flex-item" type="checkbox" name="401^Sulfite-Free">Sulfite
+            <input ngModel class="flex-item" type="checkbox" name="392^Wheat-Free">Wheat
+            <input ngModel class="flex-item" type="checkbox" name="393^Gluten-Free">Gluten
+            <input ngModel class="flex-item" type="checkbox" name="399^Sesame-Free">Sesame
+          </div>
         </div>
       </div>
-
-      <!-- <div>
-        <button (click)="handleRecipeClick(searchString)">Search</button>
-      </div> -->
 
     </form>
   </div>
