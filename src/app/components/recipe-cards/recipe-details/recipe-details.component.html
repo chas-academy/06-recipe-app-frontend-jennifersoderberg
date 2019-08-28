@@ -1,13 +1,17 @@
 <body>
-    <div class="card" *ngIf="recipe">
-        <div class="card-body">
-            <h3 class="card-title"> {{ recipe.name }} </h3>
+
+    <div class="container" *ngIf="recipe">
+        <div class="content">
+            <h2 class="card-title"> {{ recipe.name }} </h2>
             <ul>
                 <li class="card-text" *ngFor="let ingredient of recipe.ingredientLines"> {{ ingredient }} </li>
             </ul>
-            <img src="{{recipe.images[0].imageUrlsBySize[90]}}" alt="">
             <a href="#" class="btn btn-sm">Back</a>
             <button class="btn btn-sm" (click)="addRecipeToList(recipe)">Add to my list</button>
         </div>
+        <div class="image">
+            <img src="{{recipe.images[0].imageUrlsBySize[90]}}" alt="">
+        </div>
     </div>
+    
 </body>

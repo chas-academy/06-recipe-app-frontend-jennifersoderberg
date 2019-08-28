@@ -32,6 +32,7 @@ export class RecipeCardsComponent implements OnInit {
   }
 
   recipeDetails(i) {
+    console.log(i);
     this.recipesService.changeMessage(i);
   }
 }

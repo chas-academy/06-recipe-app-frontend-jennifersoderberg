@@ -1,34 +1,37 @@
   <!-- HEADER WITH SEARCH FIELD-->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4" style="text-align:center"> {{ title }} </h1>
     <form #form="ngForm" (ngSubmit)="handleRecipeClick(form)" class="form-group">
 
       <div class="flexcontainer-large">
-        <div class="searchbox">
-          <input ngModel type="text" name="searchString" class="form-control searchitem" placeholder="" required>
-          <button type="submit">Search</button>
-        </div>
-        
-        <div class="diet">
-          <div class="flexcontainer-small">
-              <input ngModel class="flex-item" type="checkbox" name="Breakfast">Breakfast
-            <input ngModel class="flex-item" type="checkbox" name="Appetizers">Appetizers
-            <input ngModel class="flex-item" type="checkbox" name="Side+Dishes">Side Dishes
-            <input ngModel class="flex-item" type="checkbox" name="Main+Dishes">Main Dishes
-            <input ngModel class="flex-item" type="checkbox" name="Desserts">Dessert
+        <div>
+          <h1 class="display-4" style="text-align:center"> {{ title }} </h1>
+
+          <div class="searchbox">
+            <input ngModel type="text" name="searchString" class="form-control searchitem" placeholder="" required>
+            <button type="submit">Search</button>
           </div>
-  
-          <div class="flexcontainer-small">
-            <input ngModel class="flex-item" type="checkbox" name="394^Peanut-Free">Peanuts
-            <input ngModel class="flex-item" type="checkbox" name="396^Dairy-Free">Dairy
-            <input ngModel class="flex-item" type="checkbox" name="400^Soy-Free">Soy
-            <input ngModel class="flex-item" type="checkbox" name="397^Egg-Free">Egg
-            <input ngModel class="flex-item" type="checkbox" name="398^Seafood-Free">Seafood
-            <input ngModel class="flex-item" type="checkbox" name="401^Sulfite-Free">Sulfite
-            <input ngModel class="flex-item" type="checkbox" name="392^Wheat-Free">Wheat
-            <input ngModel class="flex-item" type="checkbox" name="393^Gluten-Free">Gluten
-            <input ngModel class="flex-item" type="checkbox" name="399^Sesame-Free">Sesame
+          
+          <div class="diet">
+            <div class="flexcontainer-small">
+              <input ngModel class="flex-item" type="checkbox" name="Breakfast">Breakfast
+              <input ngModel class="flex-item" type="checkbox" name="Appetizers">Appetizers
+              <input ngModel class="flex-item" type="checkbox" name="Side+Dishes">Side Dishes
+              <input ngModel class="flex-item" type="checkbox" name="Main+Dishes">Main Dishes
+              <input ngModel class="flex-item" type="checkbox" name="Desserts">Dessert
+            </div>
+    
+            <div class="flexcontainer-small">
+              <input ngModel class="flex-item" type="checkbox" name="394^Peanut-Free">Peanuts
+              <input ngModel class="flex-item" type="checkbox" name="396^Dairy-Free">Dairy
+              <input ngModel class="flex-item" type="checkbox" name="400^Soy-Free">Soy
+              <input ngModel class="flex-item" type="checkbox" name="397^Egg-Free">Egg
+              <input ngModel class="flex-item" type="checkbox" name="398^Seafood-Free">Seafood
+              <input ngModel class="flex-item" type="checkbox" name="401^Sulfite-Free">Sulfite
+              <input ngModel class="flex-item" type="checkbox" name="392^Wheat-Free">Wheat
+              <input ngModel class="flex-item" type="checkbox" name="393^Gluten-Free">Gluten
+              <input ngModel class="flex-item" type="checkbox" name="399^Sesame-Free">Sesame
+            </div>
           </div>
         </div>
       </div>
